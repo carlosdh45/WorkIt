@@ -1,0 +1,17 @@
+.spinner {
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 10px solid rgba($secondary-color, 0.15);
+  animation: circle-2-spin 1s infinite linear;
+  &-container {
+    @include flex();
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+}
+@keyframes circle-2-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

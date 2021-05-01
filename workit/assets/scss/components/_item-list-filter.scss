@@ -1,0 +1,112 @@
+.filter-collapse {
+  display: none;
+  margin-bottom: 10px;
+}
+.filter-bar {
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  border-top: none;
+  .search {
+    .form-group {
+      width: 100%;
+      padding: 0 10px 0 0;
+      .form-control {
+        width: 100%;
+      }
+    }
+  }
+  .parameter {
+    .parameter-title {
+      @include flex();
+      border-bottom: 2px solid $main-color;
+      color: #2e2e2e;
+      font-size: 20px;
+      font-family: $header-font;
+      text-transform: uppercase;
+
+      a {
+        margin-left: auto;
+      }
+      i {
+        font-size: 20px;
+        color: $second-text-color;
+        @include translate(0, 2px);
+      }
+    }
+    .parameter-body {
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      .parameter-option {
+        text-transform: capitalize;
+        padding: 10px 0px;
+        justify-content: space-between;
+        display: flex;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+        color: $second-text-color;
+        .label-container {
+          padding-left: 0;
+        }
+        &:hover,
+        &:focus {
+          color: $main-color;
+        }
+      }
+      .badge {
+        @include flex();
+        flex-wrap: nowrap;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(lg) {
+  .filter-collapse {
+    display: block;
+  }
+  .filter-bar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    margin-left: -320px;
+    max-height: 100vh;
+    z-index: 111;
+    background: #fff;
+    width: 100%;
+    max-width: 320px;
+    padding: 40px 20px;
+    overflow: scroll;
+    visibility: hidden;
+    opacity: 0;
+    @include transition(all, 0.25s, linear, 0s);
+    -webkit-box-shadow: 10px 0px 50px -9px rgba(0, 0, 0, 0.76);
+    -moz-box-shadow: 10px 0px 50px -9px rgba(0, 0, 0, 0.76);
+    box-shadow: 10px 0px 50px -9px rgba(0, 0, 0, 0.76);
+
+    .filter-close {
+      margin-bottom: 20px;
+    }
+    .parameters.collapse {
+      display: none;
+    }
+    &.active {
+      left: 0;
+      margin-left: 0;
+      visibility: visible;
+      opacity: 1;
+      min-height: 100%;
+    }
+  }
+  .filter-mobile-bg {
+    background: rgba(#000, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 110;
+  }
+}

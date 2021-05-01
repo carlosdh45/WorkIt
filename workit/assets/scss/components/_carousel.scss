@@ -1,0 +1,25 @@
+.carousel-item {
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@include media-breakpoint-down(md) {
+  .carousel-item {
+    height: 280px;
+  }
+} // md
+@include media-breakpoint-down(sm) {
+  .carousel-item {
+    height: 320px;
+  }
+} // sm
+.VueCarousel {
+  &-dot {
+    margin-top: 0 !important;
+    &:focus {
+      outline: none !important;
+    }
+  }
+}

@@ -1,0 +1,221 @@
+.item-list {
+  &-options {
+    @include flex();
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-items {
+    @include flex();
+    flex-wrap: wrap;
+    .item-sale {
+      width: 60px;
+      height: 60px;
+      @include flex();
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 10px;
+      top: 0px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      h6 {
+        @include flex();
+        flex-direction: row;
+        color: $white;
+        position: absolute;
+        font-size: 20px;
+        p {
+          color: $white;
+          margin: 0;
+          margin-left: 1px;
+        }
+      }
+    }
+    .item-new {
+      height: 30px;
+      width: 60px;
+      background-color: $main-color;
+      @include flex();
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      h6 {
+        @include flex();
+        flex-direction: row;
+        color: $white;
+        position: absolute;
+        font-size: 15px;
+      }
+    }
+    .item-list-item {
+      @include flex();
+      width: calc(33.33% - 8px);
+      margin: 0 6px 12px;
+      position: relative;
+      &:nth-child(3n + 1) {
+        margin-left: 0;
+      }
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+  &-item {
+    @include flex();
+    flex-direction: column;
+    padding: 30px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    input[type='number'] {
+      max-width: 75px;
+    }
+    &-img {
+      text-align: center;
+      margin-bottom: 10px;
+      height: 230px;
+      padding: 15px;
+      @include flex();
+      justify-content: center;
+      align-items: flex-end;
+      img {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    &-info {
+      @include flex();
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+    &-title {
+      text-transform: uppercase;
+      color: $main-text-color;
+      font-size: 20px;
+      margin: 10px 0;
+      letter-spacing: initial;
+      font-family: $header-font;
+    }
+    &-code {
+      color: $secondary-color;
+    }
+    &-page-link {
+      color: #000;
+      text-transform: capitalize;
+      font-weight: bold;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+    &-brand {
+      background-color: $secondary-color;
+      border-radius: 3px;
+      width: 50%;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    &-brand-logo {
+      img {
+        height: 20px;
+        width: auto;
+      }
+    }
+    &-list-price {
+      margin-bottom: 5px;
+      color: #000;
+      font-family: $header-font;
+      font-size: 12px;
+      text-decoration: line-through;
+    }
+    &-price {
+      font-family: $header-font;
+      font-size: 17px;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    &-new-price {
+      font-family: $header-font;
+      font-size: 17px;
+      color: darken($main-color, 10%);
+      margin-bottom: 10px;
+    }
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-action {
+      margin-top: auto;
+    }
+    &-available {
+      i {
+        @include translate(0, 3px);
+      }
+      &-warning {
+        color: $main-color;
+      }
+    }
+  }
+}
+.result-per-page {
+  color: $secondary-color;
+  &.active {
+    color: $main-color;
+    font-weight: bold;
+    &::before,
+    &::after {
+      content: ' | ';
+    }
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+}
+@include media-breakpoint-down(md) {
+  .item-list {
+    &-items {
+      .item-list-item {
+        width: calc(50% - 8px);
+        &:nth-child(3n + 1) {
+          margin-left: 6px;
+        }
+        &:nth-child(3n) {
+          margin-right: 6px;
+        }
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+        }
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .item-list {
+    &-options {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &-items {
+      .item-list-item {
+        width: 100%;
+        margin: 0 0 12px !important;
+      }
+    }
+  }
+}

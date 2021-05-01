@@ -1,0 +1,67 @@
+.alert {
+  @include flex();
+  position: fixed;
+  z-index: $z-alert;
+  bottom: 15px;
+  left: 50%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  padding: 0.75em 1.75em;
+  overflow: hidden;
+  border-radius: 3px;
+  @include translate(-50%, 0);
+  span,
+  a {
+    font-size: 16px;
+  }
+  span {
+    width: 100%;
+  }
+  a {
+    text-decoration: underline;
+  }
+  svg,
+  i {
+    position: relative;
+  }
+  .btn-close {
+    margin-left: 35px;
+    padding: 0;
+  }
+}
+.alert-success {
+  background-color: $success;
+  span,
+  a,
+  svg,
+  i {
+    color: #fff;
+  }
+}
+.alert-warning {
+  background-color: $warning;
+  span,
+  a,
+  svg,
+  i {
+    color: $main-text-color;
+  }
+}
+.alert-danger {
+  background-color: $danger;
+  span,
+  a,
+  svg,
+  i {
+    color: #fff;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .alert {
+    width: 100%;
+    bottom: 0;
+    border-radius: 0;
+  }
+} //sm

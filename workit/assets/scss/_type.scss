@@ -1,0 +1,89 @@
+body,
+p,
+a,
+input,
+textarea,
+button,
+select,
+option {
+  color: $main-text-color;
+  font-size: 15px;
+  font-family: $body-font;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+th {
+  margin: 0;
+  font-family: $header-font;
+  &.red-underline {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $main-color;
+    }
+  }
+}
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  color: $main-color;
+  text-transform: uppercase;
+}
+h1,
+.h1 {
+  @include font-responsive(32px, 48px, 360px, 1280px);
+}
+h2,
+.h2 {
+  @include font-responsive(32px, 48px, 360px, 1280px);
+}
+h3,
+.h3 {
+  @include font-responsive(28px, 36px, 360px, 1280px);
+  color: $main-text-color;
+}
+h4,
+.h4 {
+  font-size: 20px;
+  color: #2e2e2e;
+}
+h5,
+.h5 {
+  @include font-responsive(18px, 27px, 360px, 1280px);
+}
+th {
+  font-weight: 400;
+  font-size: 18px !important;
+}
+
+a {
+  @include transition(all, 0.15s, ease, 0s);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}

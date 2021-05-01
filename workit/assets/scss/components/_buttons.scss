@@ -1,0 +1,373 @@
+button {
+  border: none;
+  background: none;
+  &[disabled] {
+    cursor: not-allowed;
+    border-color: #555 !important;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 7px 20px;
+  @include reset-appearance();
+  @include transition(all, 0.15s, linear, 0s);
+
+  &:focus,
+  &:hover {
+    outline: none;
+    box-shadow: none;
+  }
+  &.btn-sm {
+    font-size: 12px;
+    padding: 5px 12px !important;
+    i {
+      font-size: 20px;
+    }
+  }
+  &.btn-1 {
+    padding: 10px 50px;
+    border: none;
+    color: #fff;
+    background: $main-color;
+    width: 100%;
+    &:hover {
+      background-color: darken($main-color, 7%);
+    }
+    &:active {
+      background-color: darken($main-color, 10%);
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.btn-2 {
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    background: $secondary-color;
+    &:hover {
+      background-color: darken($secondary-color, 4%);
+    }
+    &:active {
+      background-color: darken($secondary-color, 8%);
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.btn-3 {
+    border: 1px solid $secondary-color;
+    color: $secondary-color;
+    &:hover,
+    &:focus {
+      background-color: $secondary-color;
+      color: #fff;
+    }
+  }
+  &.btn-4 {
+    padding: 7px 15px;
+    border: 2px solid $main-color;
+    background-color: $main-color;
+    color: #fff;
+    &:hover {
+      background-color: darken($main-color, 7%);
+      border-color: darken($main-color, 7%);
+    }
+    &:active {
+      border-color: darken($main-color, 10%);
+      background-color: darken($main-color, 10%);
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.btn-5 {
+    border: none;
+    background-color: $bg-1;
+    color: $secondary-color;
+    &:hover {
+      background-color: darken(#f1f1f1, 3%);
+    }
+    &:active {
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &.btn-6 {
+    padding: 7px 15px;
+    border: 2px solid $main-color;
+    color: $main-color;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: $main-color;
+      color: #fff;
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &.btn-7 {
+    border: none;
+    background-color: $bg-2;
+    color: $main-text-color;
+    &:hover {
+      background-color: darken($bg-2, 7%);
+    }
+    &:active {
+      background-color: darken($bg-2, 12%);
+    }
+  }
+  &.btn-8 {
+    padding: 7px 15px;
+    border: 2px solid $bg-2;
+    background-color: $bg-2;
+    color: $main-text-color;
+    &:hover {
+      border-color: darken($bg-2, 7%);
+      background-color: darken($bg-2, 7%);
+    }
+    &:active {
+      border-color: darken($bg-2, 12%);
+      background-color: darken($bg-2, 12%);
+    }
+  }
+  &.btn-9 {
+    padding: 7px 15px;
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    font-size: 16px;
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      color: $main-color;
+    }
+  }
+  &.btn-10 {
+    padding: 7px 15px;
+    border: 2px solid #fff;
+    color: $main-text-color;
+    background: $bg-2;
+    font-size: 16px;
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      color: $main-color;
+    }
+  }
+  &.btn-11 {
+    padding: 10px 50px;
+    border: 2px solid $main-color;
+    color: $main-color;
+    background: #fff;
+    width: 100%;
+    &:hover {
+      background-color: darken($main-color, 7%);
+      color: #fff;
+    }
+    &:active {
+      background-color: darken($main-color, 10%);
+      color: #fff;
+
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.btn-success {
+    padding: 7px 15px;
+    border: 2px solid green;
+    background-color: green;
+    color: #fff;
+    &:hover {
+      border-color: darken(green, 7%);
+      background-color: darken(green, 7%);
+    }
+    &:active {
+      border-color: darken(green, 12%);
+      background-color: darken(green, 12%);
+    }
+    &[disabled] {
+      border-color: green !important;
+      background-color: green !important;
+    }
+  }
+  &.btn-icon {
+    i {
+      @include translate(0, 8px);
+      @include transition(all, 0.15s, ease-in, 0.0001s);
+      font-size: 28px;
+    }
+    &:hover,
+    &:focus {
+      i {
+        color: $main-color;
+      }
+    }
+  }
+  &.btn-block {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    border: none;
+
+    &:active {
+      background-color: darken($secondary-color, 8%);
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.btn-banner {
+    &[disabled] {
+      background: $main-color !important;
+    }
+  }
+  &.btn-truper {
+    border: 2px solid $truper;
+    color: $truper;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $truper;
+    }
+  }
+  &.btn-foset {
+    border: 2px solid $foset;
+    color: $foset;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $foset;
+    }
+  }
+  &.btn-fiero {
+    border: 2px solid $fiero;
+    color: $fiero;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $fiero;
+    }
+  }
+  &.btn-volteck {
+    border: 2px solid $volteck;
+    color: $volteck;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $volteck;
+    }
+  }
+  &.btn-pretul {
+    border: 2px solid $pretul;
+    color: $pretul;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $pretul;
+    }
+  }
+  &.btn-hermex {
+    border: 2px solid $hermex;
+    color: $hermex;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $hermex;
+    }
+  }
+  &.btn-klintek {
+    border: 2px solid $klintek;
+    color: $klintek;
+    padding: 0.75em 1.75em;
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $klintek;
+    }
+  }
+  &.btn-google {
+    height: 40px;
+    padding: 0px;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    img {
+      height: 18px;
+      margin-right: 24px;
+    }
+    .text {
+      color: rgba(0, 0, 0, 0.54);
+      font-family: $google-font;
+      font-size: 14px;
+      text-transform: none;
+    }
+  }
+}
+.btn-link {
+  display: inline;
+  background: none;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  color: $second-text-color;
+  text-decoration: underline;
+  text-transform: capitalize;
+  padding: 0;
+  &-2 {
+    text-decoration: none;
+    color: $main-text-color;
+  }
+  &:hover {
+    color: $main-text-color;
+  }
+  &:focus {
+    color: $main-color;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    background: transparent !important;
+    text-decoration: line-through;
+    &:hover {
+      color: $second-text-color;
+    }
+  }
+}
+.btn-with-checkout {
+  width: 85px;
+}
+@include media-breakpoint-down(md) {
+  .btn {
+    &.btn-icon i {
+      @include translate(0, 6px);
+      font-size: 24px;
+    }
+  }
+}

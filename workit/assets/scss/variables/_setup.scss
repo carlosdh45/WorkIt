@@ -1,0 +1,25 @@
+// Media sizes
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1440px;
+
+// Fonts
+$body-font: 'Open Sans', sans-serif;
+$body-font-size: 16px;
+
+$header-font: 'Fjalla One', sans-serif;
+
+$google-font: 'Roboto', san-serif;
+// Z index
+$z-navbar-dropdown: 2000;
+$z-navbar: 2800;
+$z-details-action: 2801;
+$z-cookies: 2805;
+$z-navbar-bg: 2900;
+$z-navbar-mobile: 3000;
+$z-lightbox: 3150;
+$z-modal: 3200;
+$z-snackbar: 3250;
+$z-alert: 3300;

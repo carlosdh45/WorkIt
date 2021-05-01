@@ -1,0 +1,84 @@
+////////////
+//  MAIN  //
+///////////
+// Text colors
+.text-main {
+	color: $main-color !important;
+}
+.text-secondary {
+	color: $secondary-color !important;
+}
+.text-white {
+	color: #fff !important;
+}
+.check {
+  color: green;
+}
+// Background colors
+.bg-main {
+	background-color: $main-color !important;
+}
+.bg-secondary {
+	background-color: $secondary-color !important;
+}
+.bg-dark {
+	background-color: $main-text-color !important;
+}
+.bg-1 {
+	background-color: $bg-1 !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.bg-2 {
+	background-color: $bg-2 !important;
+}
+////////////
+// BRANDS //
+///////////
+// Brand text color
+.text-truper {
+	color: $truper !important;
+}
+.text-foset {
+	color: $foset !important;
+}
+.text-fiero {
+	color: $fiero !important;
+}
+.text-volteck {
+	color: $volteck !important;
+}
+.text-pretul {
+	color: $pretul !important;
+}
+.text-hermex {
+	color: $hermex !important;
+}
+.text-klintek {
+	color: $klintek !important;
+}
+
+// Brand backgrounds
+.bg-truper {
+	background-color: $truper !important;
+}
+.bg-foset {
+	background-color: $foset !important;
+}
+.bg-fiero {
+	background-color: $fiero !important;
+}
+.bg-volteck, .bg-voltech {
+	background-color: $volteck !important;
+}
+.bg-pretul {
+	background-color: $pretul-2 !important;
+	color: $pretul !important;
+}
+.bg-hermex {
+	background-color: $hermex !important;
+}
+.bg-klintek {
+	background-color: $klintek !important;
+}

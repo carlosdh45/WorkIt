@@ -1,0 +1,51 @@
+.container {
+  @include make-container-max-widths(
+    (
+      lg: 1380px
+    )
+  );
+  &-md {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+  &-sm {
+    @include make-container();
+    @include make-container-max-widths(
+      (
+        lg: 920px
+      )
+    );
+  }
+}
+
+// Scroll Bar And Selection
+*::selection {
+  background: $selection-color;
+  color: #fff;
+}
+*::-moz-selection {
+  background: $selection-color;
+  color: #fff;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $bg-1;
+  &:hover {
+    background-color: $bg-2;
+  }
+}
+
+.section {
+  padding: 40px 0;
+  &-lg {
+    padding: 60px 0;
+  }
+  &-sm {
+    padding: 20px 0;
+  }
+}

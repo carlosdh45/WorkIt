@@ -1,0 +1,45 @@
+.item-gallery {
+  @include flex();
+  flex-direction: column;
+  height: 100%;
+  &-main {
+    flex: 1;
+    &-image {
+      @include flex();
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      min-height: 300px;
+      img {
+        max-width: 100%;
+        max-height: 300px;
+        height: auto;
+        cursor: pointer;
+      }
+    }
+  }
+  &-thumbs {
+    @include flex();
+    flex-wrap: wrap;
+    margin-top: 30px;
+    &-image {
+      margin-right: 15px;
+      margin-bottom: 15px;
+      padding: 8px;
+      border: 1px solid #f4f4f4;
+      border-radius: 3px;
+      background: #fff;
+      img {
+        max-width: 64px;
+        max-height: 64px;
+        height: auto;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active {
+        border-color: rgba($main-color, 0.5);
+      }
+    }
+  }
+}

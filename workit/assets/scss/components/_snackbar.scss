@@ -1,0 +1,17 @@
+.snackbar {
+  position: fixed;
+  z-index: $z-snackbar;
+  background-color: $main-text-color;
+  color: #fff;
+  width: 100%;
+  padding: 15px 0;
+  * {
+    color: #fff;
+  }
+  &-top {
+    top: 0px;
+  }
+  &-bottom {
+    bottom: 0px;
+  }
+}

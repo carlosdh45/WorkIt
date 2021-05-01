@@ -1,0 +1,10 @@
+// reset default component styles
+.tabs [index] {
+  border: none !important;
+  border-radius: initial !important;
+}
+.tab-contents {
+  border: none !important;
+  border-radius: initial !important;
+  min-height: initial !important;
+}

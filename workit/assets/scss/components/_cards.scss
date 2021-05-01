@@ -1,0 +1,21 @@
+.card {
+  padding: 60px;
+  border: 1px solid rgba($main-text-color, 0.15);
+  border-radius: 3px;
+  &-sm {
+    padding: 35px;
+  }
+  &-selected {
+    border-color: green;
+  }
+}
+@include media-breakpoint-down(md) {
+  .card {
+    padding: 40px;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .card {
+    padding: 30px;
+  }
+}

@@ -1,0 +1,14 @@
+.drawer {
+  background: linear-gradient(180deg, #283950 2.71%, #5F738F 156.61%);
+  // background-image: url('~/static/images/SideBar.svg');
+  .drawer-header{
+    background: #ffffff;
+  }
+  &-item {
+    &-title {
+      font-weight: bold;
+    }
+    &-icon {
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.breadcrumbs {
+  @include flex();
+  justify-content: flex-start;
+  padding-left: 0;
+  overflow: auto;
+  overflow-y: hidden;
+  @include hide-scrollbar();
+  margin-bottom: 25px;
+  a {
+    color: $main-text-color;
+    text-decoration: none;
+    padding: 10px 1px 10px 50px;
+    background: $bg-2;
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    &:after {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 30px solid $bg-2;
+      position: absolute;
+      top: 50%;
+      margin-top: -50px;
+      left: calc(100% - 1px);
+      z-index: 2;
+      @include transition(all, 0.15s, linear, 0s);
+    }
+    &:before {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 30px solid white;
+      position: absolute;
+      top: 50%;
+      margin-top: -50px;
+      margin-left: 1px;
+      left: calc(100% - 1px);
+      z-index: 1;
+    }
+    &:hover {
+      background: darken($bg-2, 5%);
+      &:after {
+        border-left-color: darken($bg-2, 5%) !important;
+      }
+    }
+    &:first-child {
+      padding-left: 25px;
+      border-radius: 3px 0 0 3px;
+    }
+    &:last-child {
+      padding-right: 25px;
+      background-color: darken($bg-2, 2%);
+      color: $secondary-color;
+      font-weight: 600;
+      border-radius: 0 3px 3px 0;
+      &:after, &:before {
+        display: none;
+      }
+    }
+  }
+}

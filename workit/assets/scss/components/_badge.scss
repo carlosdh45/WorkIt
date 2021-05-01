@@ -1,0 +1,38 @@
+.badge {
+  display: inline-block;
+  border-radius: 3px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 4px;
+  height: auto;
+  line-height: 1;
+  vertical-align: middle;
+
+  strong {
+    margin-right: 5px;
+  }
+  a {
+    margin-left: auto;
+  }
+  i {
+    font-size: 17px;
+    color: $second-text-color;
+    @include translate(0, 2px);
+  }
+  span {
+    width: 100%;
+  }
+  &-main {
+    background-color: #fff;
+    color: $main-color;
+  }
+  &-light {
+    background-color: $bg-1;
+    color: $second-text-color;
+  }
+  &-lg {
+    padding: 10px;
+    font-size: 16px;
+  }
+}

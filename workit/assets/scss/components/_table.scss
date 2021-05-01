@@ -1,0 +1,54 @@
+#cart-view {
+  height: 90%;
+}
+
+.table {
+  display: table;
+  &-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+    padding: 5px;
+  }
+  thead {
+    tr {
+      background-color: #fff;
+      th {
+        font-family: 'Open Sans';
+        font-weight: bold;
+      }
+    }
+  }
+  &-responsive {
+    td,
+    td span {
+      white-space: nowrap;
+    }
+  }
+  &-sortable {
+    th {
+      cursor: pointer;
+    }
+  }
+  &-actionable {
+    tbody tr {
+      cursor: pointer;
+      &:hover {
+        background-color: $main-color;
+        color: white;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .table {
+    &-responsive {
+      th,
+      td {
+        width: 100%;
+      }
+    }
+  }
+} // md
