@@ -25,8 +25,8 @@
               <template #button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item href="#">Profile</b-dropdown-item>
-              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+              <b-dropdown-item @click="goToLogin" >Profile</b-dropdown-item>
+              <b-dropdown-item  href="#">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -59,7 +59,7 @@
           <b-form-input class="input-search" id="input-1" type="email" placeholder="Busca lo que necesitas ">
           </b-form-input>
 
-          <b-button pill variant="primary">Search</b-button>
+          <b-button @click="goToLogin" pill variant="primary">Search</b-button>
         </div>
 
       </div>
@@ -94,7 +94,9 @@
 
   }
 
-  .categories-options {}
+  .categories-options {
+    
+  }
 
   .title-section {
     width: 100%;
@@ -172,3 +174,20 @@
   transform: scale(1.1);
 }
 </style>
+
+<script>
+
+  export default {
+    data: () => {
+
+    },
+    methods: {
+      goToLogin(login){
+        this.$router.push({
+          path : '/login'
+        })
+      }
+    }
+  }
+
+</script>
