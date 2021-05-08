@@ -4,9 +4,19 @@
         <div class="login-page">
             <div class="login-form">
                 <img class="login-logo" src="../img/imagenes/Logo.png" alt="">
-                <h3>Bienvenido</h3>
-                <b-form-input class="login-input" id="input-1" type="email" placeholder="Correo Electronica "></b-form-input>
-                <b-form-input class="login-input" id="input-1" type="email" placeholder="Contraseña"></b-form-input>
+                <h3>Crea tu Cuenta</h3>
+                <div class="box-1">
+                <b-form-input class="login-input" id="input-1" type="email" placeholder="Nombre "></b-form-input>
+                <b-form-input class="login-input" id="input-1" type="email" placeholder="Apellido"></b-form-input>
+
+                </div>
+                <b-form-input style="width:85%" class="login-input" id="input-1" type="email" placeholder="Correo Electronica "></b-form-input>
+                <div class="box-1">
+                <b-form-input class="login-input" id="input-1" type="email" placeholder="Contraseña "></b-form-input>
+                <b-form-input class="login-input" id="input-1" type="email" placeholder="Confirmar"></b-form-input>
+
+                </div>
+                 <b-form-input style="width:85%" class="login-input" id="input-1" type="email" placeholder="Ocupacion"></b-form-input>
                 <a href=""></a>
                 <b-button @click="goToLogin" pill variant="primary">Siguiente</b-button>
                 <h6></h6>
@@ -59,6 +69,14 @@
    
     
 }
+
+.box-1{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 
 <script>
@@ -77,3 +95,4 @@
   }
 
 </script>
+

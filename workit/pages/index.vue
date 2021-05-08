@@ -26,7 +26,7 @@
                 <em>User</em>
               </template>
               <b-dropdown-item @click="goToLogin" >Profile</b-dropdown-item>
-              <b-dropdown-item  href="#">Sign Out</b-dropdown-item>
+              <b-dropdown-item @click="goToRegister" href="#">Registro</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -185,6 +185,11 @@
       goToLogin(login){
         this.$router.push({
           path : '/login'
+        })
+      },
+      goToRegister(login){
+        this.$router.push({
+          path : '/registro'
         })
       }
     }
