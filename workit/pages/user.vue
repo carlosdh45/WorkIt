@@ -46,15 +46,16 @@
 
         <div class="service-box-container">
             <div class="user-services">
-                <h3>Servicios de "Nombre del usuario" </h3>
+                <h3 class="title-services">Servicios de "Nombre del usuario" </h3>
                 <div class="card-container">
                     <div class="card-user-service" v-for="(item , i) in  3" :key="i">
                        <div class="img-service">
-                           <h4>Imagen de servicio</h4>
+                           <img src="../img/imagenes/DiseñoLogo.jpg" alt="">
                        </div>
                        <div class="nameUser-Card">
-                           <div class="circle"></div>
-                           <p class="nameInCard">"Nombre del usuario</p>
+                           <div class="circle">
+                           </div>
+                           <p class="nameInCard">Carlos Morales</p>
                        </div>
 
                         <div class="services-options">
@@ -106,10 +107,19 @@
       width: 100%;
   }
 
+  .title-services{
+      width: 100%;
+      text-align: left;
+      margin: 10px;
+      margin: 10px 10px 10px 10% ;
+  }
+
   .user-services{
       display: flex;
       flex-direction: column;
       width: 70%;
+      justify-content: center;
+      align-items: center;
      
   }
 
@@ -123,8 +133,8 @@
   }
 
   .card-user-service{
-      width: 250px;
-      height: 350px;
+      width: 280px;
+      height: 260px;
       border: black 2px solid;
       border-radius: 20px;
       margin: 10px;
@@ -134,11 +144,14 @@
       width: 100%;
       border: black 1px solid;
       border-radius: 15px;
-      height: 30%;
+      height: 40%;
       display: flex;
       justify-content: center;
       align-content: center;
+      margin: 0;
+      
   }
+
 
   .circle{
       width: 30px;
@@ -160,7 +173,11 @@
 
   .nameInCard{
       font-size: 15px;
-
+      margin: 0;
+      text-align: left;
+      width: 60%;
+      padding-top: 1% ;
+     
   }
 
   .services-options{
