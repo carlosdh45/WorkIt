@@ -161,6 +161,7 @@
     height: 80%;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .service{

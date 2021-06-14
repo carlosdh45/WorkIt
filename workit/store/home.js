@@ -61,12 +61,14 @@ export const getters = {
      categoriesRq({ commit }) {
         return new Promise((resolve, reject) => {
           commit('CATEGORIES_REQUEST')
+          const endpoint = 'https://wapi.agglobal.com:4052/api/item?slog=036299'
           axios
             .get(
-             //ENDPOINT
+              endpoint
             )
             .then(res => {
               commit('CATEGORIES_SUCCESS', res.data)
+              console.log(res)
               resolve(res)
             })
             .catch(err => {

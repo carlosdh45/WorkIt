@@ -48,28 +48,33 @@
             <div class="user-services">
                 <h3 class="title-services">Servicios de "Nombre del usuario" </h3>
                 <div class="card-container">
-                    <div class="card-user-service" v-for="(item , i) in  3" :key="i">
+                    <div class="card-user-service" v-for="(item ) in  profile" :key="item">
                        <div class="img-service">
                            <img src="../img/imagenes/DiseñoLogo.jpg" alt="">
                        </div>
                        <div class="nameUser-Card">
                            <div class="circle">
                            </div>
-                           <p class="nameInCard">Carlos Morales</p>
+                           <p class="nameInCard">{{item.name}}</p>
                        </div>
 
                         <div class="services-options">
                             <p class="user-abilities">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, molestias?</p>
+                            <hr>
+                           
                         </div>
-                        <hr>
-                        <div>
+                        
+                        
+                        
+
+                        <!-- <div class="rating">
                             <img src="" alt="">
                             <h3>5.0</h3>
 
                             <div>
                                 <h4>Precio: $10</h4>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     
@@ -79,8 +84,48 @@
             <div></div>
         </div>
 
+        
+            {{profile[1].name}}
+
     </div>
 </template>
+
+
+
+<script>
+import { mapGetters , mapActions } from 'vuex'
+
+export default {
+  data() {
+    return {
+    }
+  },
+  computed: {
+    ...mapGetters({
+      profile: 'profile/getProfileDetail',
+      categories: 'home/getcategories'
+    }),
+  },
+  methods: {
+    ...mapActions({
+      profileFB: 'profile/profileRq',
+      categoriesRq: 'home/categoriesRq'
+    }),
+  
+  },
+
+  mounted() {
+    this.profileFB()
+    .then(res=>res)
+  },
+}
+</script>
+
+
+
+
+
+
 
 
 
@@ -94,8 +139,11 @@
     flex-direction: row;
     align-items: center;
     padding-top: 10px;
+    flex-wrap: wrap;
 
   }
+
+  
 
   .categories-options {
     
@@ -134,7 +182,7 @@
 
   .card-user-service{
       width: 280px;
-      height: 260px;
+      height: 350px;
       border: black 2px solid;
       border-radius: 20px;
       margin: 10px;
@@ -163,7 +211,6 @@
   .nameUser-Card{
       display: flex;
       flex-direction: row;
-      height: 20%;
       width: 100%;
       justify-content: space-around;
       align-content: center;
@@ -177,6 +224,7 @@
       text-align: left;
       width: 60%;
       padding-top: 1% ;
+      height: auto;
      
   }
 
@@ -184,6 +232,17 @@
       display: flex;
       justify-content: center;
       align-items: center ;
+      height: 40%;
+      flex-direction: column ;
+      
+  }
+
+  .services-options hr{
+      width : 100%;
+      height: 1px;
+      background: black;
+
+
   }
   .user-abilities{
       font-weight: 14px;
@@ -191,13 +250,20 @@
       width: 100%;
       height: 30%;
   }
+
+  .rating{
+      height: 20%;
+  }
+
+
+
+  @media only screen and( max-width: 600px){
+       .categories {
+            margin: 15%;
+
+        }
+  }
 </style>
 
 
-<script>
 
-export default{
-
-}
-
-</script>

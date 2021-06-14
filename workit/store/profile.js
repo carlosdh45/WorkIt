@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { firestore } from '~/plugins/firebase.js'
 
 const ordersApiUrl = process.env.apiUrl 
 
@@ -9,25 +10,28 @@ const ordersReqConfig = {
 }
 
 export const state = () => ({
-    profileDetail:[],
+    profile:{},
+    profileStatus:'',
     
   })
 
 
 export const getters = {
-    getProfileDetail: state => state.profileDetail,
+    getProfileDetail: state => state.profile,
+    getProfileStatus: state => state.profileStatus,
     
   }
 
   export const mutations = {
     PROFILE_DETAIL_REQUEST: function(state) {
-      state.profileDetail = 'loading'
+      state.profileStatus = 'loading'
     },
     PROFILE_DETAIL_SUCCESS: function(state, data) {
-      state.profileDetail = data
+      state.profileStatus = 'success'
+      state.profile = data
     },
     PROFILE_DETAIL_ERROR: function(state) {
-      state.profileDetail = data
+      state.profileStatus = 'error'
     },
     
   }
@@ -39,17 +43,17 @@ export const getters = {
      * Rq for Profile details
      *
      */
-    
-      profileDetailRq({ commit }) {
+      profileRq({ commit }) {
         return new Promise((resolve, reject) => {
           commit('PROFILE_DETAIL_REQUEST')
-          axios
-            .get(
-             //ENDPOINT
-            )
+          const section = 'users'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
             .then(res => {
-              commit('PROFILE_DETAIL_SUCCESS', res.data)
-              resolve(res)
+              commit('PROFILE_DETAIL_SUCCESS', res.data())
+              console.log(res.data);
             })
             .catch(err => {
               commit('PROFILE_DETAIL_ERROR')
@@ -58,8 +62,4 @@ export const getters = {
         })
       },
 
-
-    
-
-   
   }

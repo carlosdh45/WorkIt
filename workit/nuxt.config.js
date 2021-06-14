@@ -21,6 +21,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/firebase.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -28,13 +29,12 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    'bootstrap-vue/nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',"@nuxtjs/axios"
-  ],
+  modules: ["@nuxtjs/axios"],
+ 
   axios: {
     proxy: false,
     progress: true,
@@ -42,5 +42,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  env: {
+    firebase: {
+    apiKey: "AIzaSyAdodEPHZEI12EqvSfkBrbZxXyE5wLayns",
+    authDomain: "work-it-2e0cb.firebaseapp.com",
+    databaseURL: "https://work-it-2e0cb-default-rtdb.firebaseio.com",
+    projectId: "work-it-2e0cb",
+    storageBucket: "work-it-2e0cb.appspot.com",
+    messagingSenderId: "167858554085",
+    appId: "1:167858554085:web:b53b72b0290c7c1eea000c"
+    }
+  },
+
+
+  
 }
