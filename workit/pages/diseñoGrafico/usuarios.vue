@@ -44,13 +44,13 @@
             <hr>
         </div>
 
-        <div class="service-box-container">
+        <div class="service-box-container" v-if="usersStatus = 'loading'">
             <div class="user-services">
                 <h3 class="title-services">Servicios y usuarios de Diseño Grafico </h3>
                 <div class="card-container">
                     <div class="card-user-service" v-for="(item ) in  users" :key="item">
                        <div class="img-service">
-                           <img style="width:100%; border-radius:15px" src="../../img/imagenes/DiseñoLogo.jpg" alt="">
+                           <img src="../../img/imagenes/imgPerfil.png" alt="">
                        </div>
                        <div class="nameUser-Card">
                            <p class="nameInCard">{{item.name}}</p>
@@ -73,7 +73,7 @@
             <div></div>
         </div>
 
-        
+        {{usersStatus}}
 
     </div>
 </template>
@@ -91,13 +91,11 @@ export default {
   computed: {
     ...mapGetters({
       users: 'profile/getDesignUsers',
-      categories: 'home/getcategories'
+      usersStatus: 'profile/getUsersStatus'
     }),
   },
   methods: {
     ...mapActions({
-      profileFB: 'profile/profileRq',
-      categoriesRq: 'home/categoriesRq',
       designProfilesRq: 'profile/designProfilesRq'
     }),
     goToPlans(login){
@@ -105,7 +103,6 @@ export default {
           path : '/plans'
         })
     }
-  
   },
 
   mounted() {
