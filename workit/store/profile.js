@@ -12,6 +12,8 @@ const ordersReqConfig = {
 export const state = () => ({
     profile:{},
     profileStatus:'',
+    designUsers:{},
+    designUsersStatus:'',
     
   })
 
@@ -19,6 +21,8 @@ export const state = () => ({
 export const getters = {
     getProfileDetail: state => state.profile,
     getProfileStatus: state => state.profileStatus,
+    getDesignUsers: state => state.designUsers,
+    getDesignUsersStatus: state => state.designUsersStatus,
     
   }
 
@@ -32,6 +36,16 @@ export const getters = {
     },
     PROFILE_DETAIL_ERROR: function(state) {
       state.profileStatus = 'error'
+    },
+    DESIGN_PROFILES_REQUEST: function(state) {
+      state.designUsersStatus = 'loading'
+    },
+    DESIGN_PROFILES_SUCCESS: function(state, data) {
+      state.designUsersStatus = 'success'
+      state.designUsers = data
+    },
+    DESIGN_PROFILES_ERROR: function(state) {
+      state.designUsersStatus = 'error'
     },
     
   }
@@ -57,6 +71,26 @@ export const getters = {
             })
             .catch(err => {
               commit('PROFILE_DETAIL_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+
+      designProfilesRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('DESIGN_PROFILES_REQUEST')
+          const section = 'diseño'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
+            .then(res => {
+              commit('DESIGN_PROFILES_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('DESIGN_PROFILES_ERROR')
               reject(err)
             })
         })

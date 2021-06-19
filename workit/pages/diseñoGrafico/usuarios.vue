@@ -46,27 +46,25 @@
 
         <div class="service-box-container">
             <div class="user-services">
-                <h3 class="title-services">Servicios de "Nombre del usuario" </h3>
+                <h3 class="title-services">Servicios y usuarios de Diseño Grafico </h3>
                 <div class="card-container">
-                    <div class="card-user-service" v-for="(item ) in  profile" :key="item">
+                    <div class="card-user-service" v-for="(item ) in  users" :key="item">
                        <div class="img-service">
-                           <img src="../img/imagenes/DiseñoLogo.jpg" alt="">
+                           <img style="width:100%; border-radius:15px" src="../../img/imagenes/DiseñoLogo.jpg" alt="">
                        </div>
                        <div class="nameUser-Card">
-                           <div class="circle">
-                           </div>
                            <p class="nameInCard">{{item.name}}</p>
+                           <b-button @click="goToPlans()" pill variant="outline-secondary">Contactar</b-button>
                        </div>
+                       <div style="margin-left:5%">
+                        <p class="nameInCard">Edad: {{item.age}}</p>
+                        <p class="nameInCard">Experiencia: {{item.experience}}</p>
+                        <p class="nameInCard">Calificacion: {{item.score}} de 5</p>
 
-                        <div class="services-options">
-                            <p class="user-abilities">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, molestias?</p>
-                            <hr>
-                           
-                        </div>
-                        
-                        
-                        
-
+                        <ul style="margin:10px">Habilidades:
+                            <li v-for="skill in item.skills" :key="skill"> {{skill}}</li>
+                        </ul>
+                       </div>
                     </div>
                     
                 </div>
@@ -76,7 +74,6 @@
         </div>
 
         
-            {{profile[1]}}
 
     </div>
 </template>
@@ -93,20 +90,26 @@ export default {
   },
   computed: {
     ...mapGetters({
-      profile: 'profile/getProfileDetail',
+      users: 'profile/getDesignUsers',
       categories: 'home/getcategories'
     }),
   },
   methods: {
     ...mapActions({
       profileFB: 'profile/profileRq',
-      categoriesRq: 'home/categoriesRq'
+      categoriesRq: 'home/categoriesRq',
+      designProfilesRq: 'profile/designProfilesRq'
     }),
+    goToPlans(login){
+        this.$router.push({
+          path : '/plans'
+        })
+    }
   
   },
 
   mounted() {
-    this.profileFB()
+    this.designProfilesRq()
     .then(res=>res)
   },
 }
@@ -176,7 +179,7 @@ export default {
 
   .card-user-service{
       width: 280px;
-      height: 350px;
+      height: 450px;
       border: black 2px solid;
       border-radius: 20px;
       margin: 10px;
@@ -206,7 +209,7 @@ export default {
       display: flex;
       flex-direction: row;
       width: 100%;
-      justify-content: space-around;
+      justify-content: center;
       align-content: center;
       margin: 10px 0 10px 0;
       
