@@ -40,8 +40,10 @@ export default {
     progress: true,
   },
 
+ 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    publicPath: '/nuxt/',
   },
 
   env: {

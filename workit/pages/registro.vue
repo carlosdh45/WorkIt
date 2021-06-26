@@ -6,7 +6,7 @@
                 <img class="login-logo" src="../img/imagenes/Logo.png" alt="">
                 <h3>Crea tu Cuenta</h3>
                 <div class="box-1">
-                <b-form-input class="login-input" id="input-1" type="email" placeholder="Nombre "></b-form-input>
+                <b-form-input class="login-input" id="input-1" type="email" placeholder="Nombre " ></b-form-input>
                 <b-form-input class="login-input" id="input-1" type="email" placeholder="Apellido"></b-form-input>
 
                 </div>
@@ -18,7 +18,7 @@
                 </div>
                  <b-form-input style="width:85%" class="login-input" id="input-1" type="email" placeholder="Ocupacion"></b-form-input>
                 <a href=""></a>
-                <b-button @click="goToLogin" pill variant="primary">Siguiente</b-button>
+                <b-button @click="saveChanges()" pill variant="primary">Siguiente</b-button>
                 <h6></h6>
                 <a href=""></a>
             </div>
@@ -80,17 +80,25 @@
 </style>
 
 <script>
-
+import { mapActions } from 'vuex'
   export default {
     data: () => {
 
     },
     methods: {
-      goToLogin(login){
+      ...mapActions({
+      postUser: 'profile/ProfilesAddRq',
+    }),
+    saveChanges() {
+      this.name = names;
+      this.date = date;
+      this.postUser(this.name , this.date) 
+    },
+      goToLogin(){
         this.$router.push({
           path : '/'
         })
-      }
+      },
     }
   }
 

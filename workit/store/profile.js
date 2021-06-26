@@ -14,6 +14,14 @@ export const state = () => ({
     profileStatus:'',
     designUsers:{},
     designUsersStatus:'',
+    programingUsers:{},
+    programingUsersStatus:'',
+    marketingUsers:{},
+    marketingUsersStatus:'',
+    callUsers:{},
+    callUsersStatus:'',
+    post: '',
+
     
   })
 
@@ -23,7 +31,12 @@ export const getters = {
     getProfileStatus: state => state.profileStatus,
     getDesignUsers: state => state.designUsers,
     getDesignUsersStatus: state => state.designUsersStatus,
-    
+    getProgramingUsers: state => state.programingUsers,
+    getProgramingStatus: state => state.programingUsersStatus,
+    getMarketingUsers: state => state.marketingUsers,
+    getMarketingStatus: state => state.marketingUsersStatus,
+    getCallUsers: state => state.callUsers,
+    getCallStatus: state => state.callUsersStatus,
   }
 
   export const mutations = {
@@ -46,6 +59,48 @@ export const getters = {
     },
     DESIGN_PROFILES_ERROR: function(state) {
       state.designUsersStatus = 'error'
+    },
+    PROGRAMING_PROFILES_REQUEST: function(state) {
+      state.programingUsersStatus = 'loading'
+    },
+    PROGRAMING_PROFILES_SUCCESS: function(state, data) {
+      state.programingUsersStatus = 'success'
+      state.programingUsers = data
+    },
+    PROGRAMING_PROFILES_ERROR: function(state) {
+      state.programingUsersStatus = 'error'
+    },
+    MARKETING_PROFILES_REQUEST: function(state) {
+      state.marketingUsersStatus = 'loading'
+    },
+    MARKETING_PROFILES_SUCCESS: function(state, data) {
+      state.marketingUsersStatus = 'success'
+      state.marketingUsers = data
+    },
+    MARKETING_PROFILES_ERROR: function(state) {
+      state.marketingUsersStatus = 'error'
+    },
+    CALL_PROFILES_REQUEST: function(state) {
+      state.callUsersStatus = 'loading'
+    },
+    CALL_PROFILES_SUCCESS: function(state, data) {
+      state.callUsersStatus = 'success'
+      state.callUsers = data
+    },
+    CALL_PROFILES_ERROR: function(state) {
+      state.callUsersStatus = 'error'
+    },
+    POST_USERS_REQUEST: function(state) {
+      state.post = 'loading'
+    },
+    POST_USERS_SUCCESS: function(state) {
+      state.post = 'success'
+    },
+    POST_USERS_ERROR: function(state) {
+      state.post = 'error'
+    },
+    POST_USERS_RESET: function(state) {
+      state.post = ''
     },
     
   }
@@ -95,5 +150,90 @@ export const getters = {
             })
         })
       },
+
+      programingProfilesRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('PROGRAMING_PROFILES_REQUEST')
+          const section = 'programacion'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
+            .then(res => {
+              commit('PROGRAMING_PROFILES_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('PROGRAMING_PROFILES_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+
+      marketingProfilesRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('MARKETING_PROFILES_REQUEST')
+          const section = 'marketing'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
+            .then(res => {
+              commit('MARKETING_PROFILES_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('MARKETING_PROFILES_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+
+      callProfilesRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('CALL_PROFILES_REQUEST')
+          const section = 'callCenter'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
+            .then(res => {
+              commit('CALL_PROFILES_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('CALL_PROFILES_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+
+
+      //Post
+
+      ProfilesAddRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('POST_USERS_REQUEST')
+          const section = 'newusers'
+          firestore
+          .collection("services")
+          .doc(section)
+          .add({nombre:names, fecha:date} )
+            .then(res => {
+              commit('POST_USERS_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('POST_USERS_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+
+
 
   }

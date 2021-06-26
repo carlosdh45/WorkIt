@@ -50,7 +50,7 @@
     <div class="our-services">
       <h3 class="services-title">Servicios mas Populares</h3>
       <div class="services-container">
-        <img class="service" src="../img/imagenes/DiseñoLogo.jpg" alt="">
+        <img class="service" @click="goToDesign" src="../img/imagenes/DiseñoLogo.jpg" alt="">
         <img class="service" src="../img/imagenes/Edicion.jpg" alt="">
         <img class="service" src="../img/imagenes/Clase.jpg" alt="">
         <img class="service" src="../img/imagenes/Construccion.jpg" alt="">
@@ -177,8 +177,10 @@
       },
       goToDesign(){
         this.$router.push({
-          path : '/diseñoGrafico/usuarios'
+           path: '/diseñoGrafico/usuarios',
+           
         })
+
       },
       goToPrograming(){
         this.$router.push({
@@ -195,7 +197,8 @@
           path : '/callCenter/usuarios'
         })
       },
-    }
+    },
+    
   }
 
 </script>

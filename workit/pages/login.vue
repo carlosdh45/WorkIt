@@ -64,7 +64,7 @@
 
     },
     methods: {
-      goToLogin(login){
+      goToLogin(){
         this.$router.push({
           path : '/'
         })
