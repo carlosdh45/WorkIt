@@ -29,7 +29,6 @@
           <b-button @click="goToCall()" pill variant="outline-secondary">Call Center</b-button>
         </div>
       </div>
-
       <hr>
     </div>
 
@@ -46,7 +45,6 @@
 
       </div>
     </div>
-
     <div class="our-services">
       <h3 class="services-title">Servicios mas Populares</h3>
       <div class="services-container">
@@ -55,12 +53,52 @@
         <img class="service" src="../img/imagenes/Clase.jpg" alt="">
         <img class="service" src="../img/imagenes/Construccion.jpg" alt="">
       </div>
-
     </div>
-
-
   </div>
 </template>
+
+<script>
+  export default {
+    data: () => {
+
+    },
+    methods: {
+      goToLogin(){
+        this.$router.push({
+          path : '/login'
+        })
+      },
+      goToRegister(){
+        this.$router.push({
+          path : '/registro'
+        })
+      },
+      goToDesign(){
+        this.$router.push({
+           path: '/diseñoGrafico/usuarios',
+           
+        })
+
+      },
+      goToPrograming(){
+        this.$router.push({
+          path : '/programacion/usuarios'
+        })
+      },
+      goToMarketing(){
+        this.$router.push({
+          path : '/marketing/usuarios'
+        })
+      },
+      goToCall(){
+        this.$router.push({
+          path : '/callCenter/usuarios'
+        })
+      },
+    },
+    
+  }
+</script>
 
 
 <style>
@@ -74,10 +112,6 @@
     align-items: center;
     padding-top: 10px;
 
-  }
-
-  .categories-options {
-    
   }
 
   .title-section {
@@ -158,47 +192,4 @@
 }
 </style>
 
-<script>
 
-  export default {
-    data: () => {
-
-    },
-    methods: {
-      goToLogin(){
-        this.$router.push({
-          path : '/login'
-        })
-      },
-      goToRegister(){
-        this.$router.push({
-          path : '/registro'
-        })
-      },
-      goToDesign(){
-        this.$router.push({
-           path: '/diseñoGrafico/usuarios',
-           
-        })
-
-      },
-      goToPrograming(){
-        this.$router.push({
-          path : '/programacion/usuarios'
-        })
-      },
-      goToMarketing(){
-        this.$router.push({
-          path : '/marketing/usuarios'
-        })
-      },
-      goToCall(){
-        this.$router.push({
-          path : '/callCenter/usuarios'
-        })
-      },
-    },
-    
-  }
-
-</script>

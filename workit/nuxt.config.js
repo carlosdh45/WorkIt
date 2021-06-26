@@ -33,7 +33,27 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios"],
+  modules: [
+    "@nuxtjs/axios",
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyAdodEPHZEI12EqvSfkBrbZxXyE5wLayns",
+          authDomain: "work-it-2e0cb.firebaseapp.com",
+          databaseURL: "https://work-it-2e0cb-default-rtdb.firebaseio.com",
+          projectId: "work-it-2e0cb",
+          storageBucket: "work-it-2e0cb.appspot.com",
+          messagingSenderId: "167858554085",
+          appId: "1:167858554085:web:b53b72b0290c7c1eea000c"
+        },
+        services: {
+          auth: true, // Just as example. Can be any other service.
+          firestore:true
+        }
+      }
+    ]
+  ],
  
   axios: {
     proxy: false,
