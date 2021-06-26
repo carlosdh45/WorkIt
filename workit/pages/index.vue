@@ -27,6 +27,8 @@
           <b-button @click="goToPrograming()" pill variant="outline-secondary">Programacion</b-button>
           <b-button @click="goToMarketing()" pill variant="outline-secondary">Marketing</b-button>
           <b-button @click="goToCall()" pill variant="outline-secondary">Call Center</b-button>
+          <b-button @click="goToJobs()" pill variant="outline-secondary">Trabajos disponibles</b-button>
+          <b-button @click="goToWorkers()" pill variant="outline-secondary">Trabajadores</b-button>
         </div>
       </div>
       <hr>
@@ -93,6 +95,16 @@
       goToCall(){
         this.$router.push({
           path : '/callCenter/usuarios'
+        })
+      },
+      goToJobs(){
+        this.$router.push({
+          path : '/trabajos/usuarios'
+        })
+      },
+      goToWorkers(){
+        this.$router.push({
+          path : '/trabajadores/usuarios'
         })
       },
     },
