@@ -13,7 +13,7 @@
               <template #button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item @click="goToLogin" >Profile</b-dropdown-item>
+              <b-dropdown-item @click="goToNewjob" >Nuevo trabajo</b-dropdown-item>
               <b-dropdown-item @click="goToRegister" href="#">Registro</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
@@ -114,6 +114,11 @@
       goToRegister(){
         this.$router.push({
           path : '/registro'
+        })
+      },
+      goToNewjob(){
+        this.$router.push({
+          path : '/newJob'
         })
       },
       goToDesign(){

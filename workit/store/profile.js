@@ -24,6 +24,8 @@ export const state = () => ({
     jobsUsersStatus:'',
     newUsers:{},
     newUsersStatus:'',
+    newJobsUsers:{},
+    newJobsUsersStatus:'',
     post: '',
 
     
@@ -45,6 +47,8 @@ export const getters = {
     getJobsStatus: state => state.jobsUsersStatus,
     getNewUsers: state => state.newUsers,
     getNewStatus: state => state.newUsersStatus,
+    getNewJobsUsers: state => state.newJobsUsers,
+    getNewJobsStatus: state => state.newJobsUsersStatus,
   }
 
   export const mutations = {
@@ -129,6 +133,16 @@ export const getters = {
     },
     NEW_PROFILES_ERROR: function(state) {
       state.newUsersStatus = 'error'
+    },
+    NEWJOBS_PROFILES_REQUEST: function(state) {
+      state.newJobsUsersStatus = 'loading'
+    },
+    NEWJOBS_PROFILES_SUCCESS: function(state, data) {
+      state.newJobsUsersStatus = 'success'
+      state.newJobsUsers = data
+    },
+    NEWJOBS_PROFILES_ERROR: function(state) {
+      state.newJobsUsersStatus = 'error'
     },
     
   }
@@ -272,6 +286,25 @@ export const getters = {
             })
             .catch(err => {
               commit('NEW_PROFILES_ERROR')
+              reject(err)
+            })
+        })
+      },
+
+      newJobsProfilesRq({ commit }) {
+        return new Promise((resolve, reject) => {
+          commit('NEWJOBS_PROFILES_REQUEST')
+          const section = 'newJobs'
+          firestore
+          .collection("services")
+          .doc(section)
+          .get()
+            .then(res => {
+              commit('NEWJOBS_PROFILES_SUCCESS', res.data())
+              console.log(res.data);
+            })
+            .catch(err => {
+              commit('NEWJOBS_PROFILES_ERROR')
               reject(err)
             })
         })

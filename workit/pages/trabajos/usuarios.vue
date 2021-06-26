@@ -53,7 +53,7 @@
                         <div class="card-user-service" v-for="(item ) in  users" :key="item.name">
                             
                             <div class="nameUser-Card">
-                                <p class="nameInCard">{{item.name}}</p>
+                                 <h1 style="color: red;" class="nameInCard">{{item.name}}</h1>
                                 <b-button @click="goToPlans()" pill variant="outline-secondary">Aplicar</b-button>
                             </div>
                             <div style="margin-left:5%">
@@ -64,6 +64,25 @@
                                 <ul style="margin:10px">Habilidades:
                                     <li v-for="responsability in item.responsabilities" :key="responsability"> {{responsability}}</li>
                                 </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-container">
+                        <div class="card-user-service" v-for="(item ) in  newJobsusers" :key="item.name">
+                            
+                            <div class="nameUser-Card">
+                                <h1 style="color: red;" class="nameInCard">{{item.name}}</h1>
+                                <b-button @click="goToPlans()" pill variant="outline-secondary">Aplicar</b-button>
+                            </div>
+                            <div style="margin-left:5%">
+                                <p style="margin-bottom:10px" class="nameInCard">Pago: {{item.payment}}</p>
+                                <p style="margin-bottom:10px" class="nameInCard">Tipo de trabajo: {{item.type}}</p>
+                                <p style="margin-bottom:10px" class="nameInCard">Experiencia: Minima de 1 año </p>
+                                <p style="margin-bottom:10px" class="nameInCard">Requisitos: {{item.skills}} </p>
+
+                                
                             </div>
                         </div>
 
@@ -94,12 +113,15 @@
         computed: {
             ...mapGetters({
                 users: 'profile/getJobsUsers',
-                usersStatus: 'profile/getJobsStatus'
+                usersStatus: 'profile/getJobsStatus',
+                newJobsusers: 'profile/getNewJobsUsers',
+                newJobsusersStatus: 'profile/getNewJobsStatus'
             }),
         },
         methods: {
             ...mapActions({
-                jobsProfilesRq: 'profile/jobsProfilesRq'
+                jobsProfilesRq: 'profile/jobsProfilesRq',
+                newJobsProfilesRq: 'profile/newJobsProfilesRq'
             }),
             reload(){
                 location.reload();
@@ -148,6 +170,9 @@
 
         mounted() {
             this.jobsProfilesRq()
+                .then(res => res),
+
+            this.newJobsProfilesRq()
                 .then(res => res)
        
         },
@@ -247,6 +272,7 @@
         width: 60%;
         padding-top: 1%;
         height: auto;
+        
 
     }
 
