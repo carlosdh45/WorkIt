@@ -332,8 +332,4 @@ export const getters = {
             })
         })
       },
-
-
-
-
   }
